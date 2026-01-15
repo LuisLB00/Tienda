@@ -1,0 +1,732 @@
+/* ===================== VARIABLES Y BASE ===================== */
+:root{
+  --oro: #d4af37;
+  --oro-claro: #f5d784;
+  --dorado: #e9c917;
+  --accent: #c48b2a;
+  --texto: #3f3f3f;
+  --fondo-claro: #fff8e7;
+  --negro-suave: #2b2b2b;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: 'Poppins', sans-serif;
+  margin:0;
+  background:#fff;
+  color:var(--texto);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===================== ESCALA RESPONSIVA GLOBAL ===================== */
+.scaled-wrapper {
+  transform-origin: top center;
+}
+
+@media (max-width: 1400px){
+  .scaled-wrapper { transform: scale(0.95); }
+}
+
+@media (max-width: 1200px){
+  .scaled-wrapper { transform: scale(0.90); }
+}
+
+@media (max-width: 992px){
+  .scaled-wrapper { transform: scale(0.82); }
+}
+
+@media (max-width: 768px){
+  .scaled-wrapper { transform: scale(0.74); }
+}
+
+@media (max-width: 600px){
+  .scaled-wrapper { transform: scale(0.66); }
+}
+
+@media (max-width: 480px){
+  .scaled-wrapper { transform: scale(0.58); }
+}
+
+/* ===================== HEADER ===================== */
+.header{
+  background:#fff;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.logo{font-weight:700;font-size:22px;color:#222}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:8px}
+nav button{
+  background:none;border:none;font-weight:600;cursor:pointer;margin:0 6px;
+  transition:color .25s; color:inherit; padding:6px 8px;
+}
+nav button:hover{color:var(--accent)}
+
+/* ===================== PRODUCTOS / GRID ===================== */
+.product-section{ text-align:center; padding:40px 20px }
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:30px;
+  justify-items:center;
+}
+.product-card{
+  background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;
+  cursor:pointer;transition:transform .25s,box-shadow .25s;max-width:300px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+.product-card:hover{ transform:scale(1.03); box-shadow:0 6px 12px rgba(0,0,0,0.1) }
+.product-card img{ width:100%; height:250px; object-fit:cover; display:block }
+.product-card h3{ font-size:1rem; margin:10px 0 5px }
+.product-card .precio{ color:var(--accent); font-weight:600; margin-bottom:10px }
+
+/* ===================== MODALES / FORMULARIO ===================== */
+.modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7);
+  justify-content:center; align-items:center; z-index:50;
+}
+.modal-content, .form-content{
+  background:#fff; border-radius:12px; padding:20px; display:flex; gap:20px;
+  max-width:900px; width:92%; position:relative; animation:aparecer .28s ease;
+}
+@keyframes aparecer{ from{transform:translateY(24px);opacity:0} to{transform:none;opacity:1} }
+
+.close-modal, .close-form{
+  position:absolute; top:10px; right:15px; font-size:22px; cursor:pointer; color:#444;
+}
+.close-modal:hover, .close-form:hover{ color:var(--accent) }
+
+/* Form */
+.form-content{
+  flex-direction:column; width:100%; max-width:420px; background:#fffefb;
+  border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+.form-content h2{ text-align:center; color:var(--accent); margin-bottom:10px }
+.form-content .resumen{ display:flex; align-items:center; gap:15px;
+  background:#faf9f5; border-radius:10px; padding:10px; margin-bottom:10px;
+}
+.form-content .resumen img{ width:90px; border-radius:8px; object-fit:cover }
+.form-content form{ display:flex; flex-direction:column }
+.form-content input, .input-field, select, textarea{
+  margin-bottom:10px; padding:10px; border-radius:8px; border:1px solid #ddd;
+  font-size:15px; transition:border .18s;
+}
+.form-content input:focus, .input-field:focus{ border-color:var(--accent); outline:none }
+.resumen-total{ background:#f8f8f8; border-radius:8px; padding:10px; margin-top:10px; font-size:14px }
+
+.btn-enviar, .btn-compra, .buttons button{
+  margin:10px 5px; padding:12px 20px; border:none; border-radius:8px; cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),#f1c40f); color:#fff; font-weight:600;
+  transition:all .25s;
+}
+.btn-enviar:hover, .btn-compra:hover, .buttons button:hover{
+  transform:scale(1.03);
+  background:linear-gradient(135deg,#f1c40f,var(--accent));
+}
+
+/* ===================== DETALLE PRODUCTO ===================== */
+.detalle-producto{ padding:50px; display:flex; justify-content:center }
+.detalle-producto-container{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start;
+  gap:40px; padding:24px; max-width:1200px; margin:auto;
+}
+.gallery-container{ display:flex; flex-direction:column; gap:15px; width:100%; max-width:450px }
+.main-image{ width:100%; border-radius:10px; overflow:hidden; cursor:zoom-in }
+.main-image img{ width:100%; height:auto; transition:transform .3s ease; display:block }
+.main-image:hover img{ transform:scale(1.12) }
+.thumbnails{ display:flex; gap:10px; overflow-x:auto; margin-top:8px }
+.thumbnails img{ width:70px; height:70px; object-fit:cover; border-radius:8px; cursor:pointer;
+  border:2px solid transparent; transition:all .18s }
+.thumbnails img.active, .thumbnails img:hover{ border-color:#ff4da6 }
+
+.detalle-derecha{ width:100%; max-width:560px; display:flex; flex-direction:column; gap:12px }
+.detalle-derecha h1{ margin-top:0; font-size:26px }
+.precio-detalle{ color:var(--dorado); font-size:1.6rem; font-weight:800 }
+
+.tallas-container{ display:flex; gap:15px; flex-wrap:wrap }
+.tallas-container select{ padding:6px; border-radius:6px; border:1px solid #ccc }
+
+/* botones volver */
+.btn-volver{
+  background:transparent; color:var(--accent); border:2px solid var(--accent);
+  padding:8px 12px; border-radius:6px; font-weight:600; cursor:pointer; transition:all .18s;
+  display:inline-block;
+}
+.btn-volver:hover{ background:var(--accent); color:#fff }
+
+/* ===================== RECOMENDADOS ===================== */
+.recomendados{ margin:60px auto 40px; text-align:center; max-width:1000px }
+.recomendados-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px }
+.recomendados-card{ border:1px solid #eee; border-radius:10px; overflow:hidden; background:#fff;
+  cursor:pointer; transition:transform .25s, box-shadow .25s }
+.recomendados-card img{ width:100%; height:180px; object-fit:cover }
+.recomendados-card:hover{ transform:scale(1.05); box-shadow:0 6px 15px rgba(0,0,0,0.08) }
+
+/* ===================== SECCIÓN GRABADO ===================== */
+.detalle-video-grabado{
+  width:100%; padding:40px 20px; display:flex; flex-direction:column; gap:40px;
+  background:linear-gradient(180deg,#fff 0%, var(--fondo-claro) 100%);
+  border-top:2px solid var(--oro); border-bottom:2px solid var(--oro);
+}
+.grabado-contenido{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:70px;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.grabado-info h3, .texto-grabado h3{
+  font-size:1.8rem; font-weight:800; color:var(--negro-suave); margin-bottom:12px;
+  text-transform:uppercase; letter-spacing:1px;
+}
+
+/* ===================== VIDEO GENERAL ===================== */
+.grabado-video video, .premium-video video, .video-izq video, #video-grabado, #video-premium{
+  width:100%; max-width:380px; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.14);
+  display:block; margin:0 auto;
+}
+
+/* ===================== PREMIUM ===================== */
+.detalle-video-premium{
+  width:100%; padding:40px 20px; display:flex; justify-content:center;
+}
+.premium-contenido{
+  max-width:1100px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center; /* 👈 NO space-between */
+  gap:90px;               /* 👈 controla la distancia */
+  flex-wrap:wrap;
+}
+
+
+.premium-info{
+  max-width:520px;
+  padding-left:10px;
+  transform:scale(1.03);
+}
+
+.premium-info h3{
+  font-size:1.65rem;
+  margin-bottom:12px;
+  font-weight:600;
+  color:#1a1a1a;
+  letter-spacing:0.3px;
+}
+
+.premium-info p{
+  font-size:1rem;
+  line-height:1.7;
+  margin-bottom:14px;
+  color:#333;
+}
+
+/* ===================== CHECKOUT ===================== */
+.checkout-container{
+  display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; gap:20px;
+  max-width:1100px; margin:40px auto; background:#fff; border-radius:10px; border:1px solid #eee;
+  padding:20px;
+}
+
+.checkout-resumen{ background:#fff7f7; padding:20px; border-radius:10px; border:1px solid #ffe1e1 }
+
+/* ===================== POPUP ===================== */
+.popup-descuento{
+  position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center;
+  z-index:2000;
+}
+
+/* ===================== FOOTER ===================== */
+footer{ text-align:center; padding:20px; background:#f5f5f5; margin-top:50px; color:#666 }
+.detalle-video-grabado .grabado-contenido {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; /* 👈 clave */
+    gap: 70px;               /* 👈 más separación real */
+    padding: 20px;
+}
+
+
+/* Contenedor del texto */
+.grabado-info {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* Contenedor del video */
+.grabado-video video {
+    width: 320px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE PARA CELULARES */
+@media (max-width: 768px) {
+    .detalle-video-grabado .grabado-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grabado-video video {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+/* ===================== POPUP DESCUENTO ===================== */
+.popup-descuento{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* subir prioridad */
+}
+
+/* CAJA DEL POPUP (NO TRANSPARENTE) */
+.popup-descuento .popup-contenido{
+  background: #ffffff;
+  opacity: 1 !important;      /* clave */
+  filter: none !important;   /* evita blur/transparencia */
+  padding: 24px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+  position: relative;
+}
+.popup-contenido h2{
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #c48b2a;
+}
+/* ===================== TEXTO CENTRADO ===================== */
+.popup-contenido{
+  text-align: center; /* centra TODO el texto */
+}
+
+/* TÍTULO */
+.popup-contenido h2{
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* TEXTO DESCRIPTIVO */
+.popup-contenido p{
+  text-align: center;
+  line-height: 1.6;
+  margin: 0 auto 18px;
+  max-width: 280px; /* evita que se vea muy ancho */
+}
+
+/* ===================== BOTONES POPUP ===================== */
+.popup-botones{
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* BOTÓN ACEPTAR */
+.btn-aceptar{
+  flex: 1;
+  background: linear-gradient(135deg, #d4af37, #f5d784);
+  color: #2b2b2b;
+  border: none;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.45);
+  transition: all 0.3s ease;
+}
+
+/* hover aceptar */
+.btn-aceptar:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+}
+
+/* BOTÓN RECHAZAR */
+.btn-rechazar{
+  flex: 1;
+  background: #f1f1f1;
+  color: #666;
+  border: none;
+  padding: 14px 0;
+  font-size: 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* hover rechazar */
+.btn-rechazar:hover{
+  background: #e3e3e3;
+  color: #333;
+  transform: translateY(-1px);
+}
+/* ================= CHECKOUT ================= */
+.checkout-section{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* GRID ORDENADO */
+.checkout-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+.checkout-grid input{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* ZONA */
+.checkout-zona{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.checkout-zona select{
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+@media (max-width: 768px){
+  .checkout-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-zona{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* 🔒 Promo navideña OCULTA por defecto */
+.detalle-video-premium{
+  display: none;
+}
+/* ❌ Ocultar promo navideña en checkout / pago */
+.checkout .detalle-video-premium,
+.checkout .promo-navidad,
+#checkout .detalle-video-premium,
+#checkout .promo-navidad {
+  display: none !important;
+}
+.checkout-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 30px;
+}
+
+.checkout-form,
+.checkout-resumen {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.btn-principal {
+  width: 100%;
+  background: linear-gradient(135deg,#d4af37,#f5d784);
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-principal:hover {
+  transform: scale(1.03);
+}
+
+.btn-volver {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+.checkout-resumen img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.checkout-resumen {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.checkout-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 30px;
+}
+@media (max-width: 900px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-resumen {
+    order: 2;
+  }
+
+  .checkout-form {
+    order: 1;
+  }
+}
+.checkout-resumen {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.checkout-resumen h4 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.checkout-resumen p {
+  font-size: 14px;
+}
+.btn-principal {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg,#d4af37,#f5d784);
+  font-weight: bold;
+}
+.btn-volver {
+  margin-top: 18px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d4af37;
+  background: transparent;
+  color: #d4af37;
+  cursor: pointer;
+  display: inline-block;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* LOGO IMAGEN */
+.logo img {
+  height: 100px;
+  width: auto;
+}
+
+/* NALA NEGRO */
+.logo-nala {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000; /* negro */
+}
+
+/* JOYAS MOSTAZA */
+.logo-joyas {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c9a227; /* mostaza elegante */
+}
+
+.logo-nala {
+  color: #000000 !important;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.logo-joyas {
+  color: #c9a227 !important; /* mostaza */
+  font-weight: 700;
+  font-size: 22px;
+}
+.descuento-estudiante {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+#codigoEstudianteBox {
+  margin-top: 10px;
+}
+
+#codigoEstudiante {
+  padding: 8px;
+  width: 200px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#validarCodigo {
+  padding: 8px 12px;
+  margin-left: 5px;
+  background: #c9a227;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.precio-descuento {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.precio-descuento del {
+  color: #999;
+  margin-right: 8px;
+}
+
+.precio-descuento strong {
+  color: #c9a227;
+}
+/* === PRECIOS ELEGANTES DORADO/NEGRO/BLANCO === */
+.precios-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.precio-normal {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+.precio-estudiante {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  border: 2px solid #D4AF37;
+  padding: 12px 20px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.precio-estudiante:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+  border-color: #FFD700;
+}
+
+.badge-descuento {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #FFD700, #D4AF37);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.label-estudiante {
+  color: #D4AF37;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.precio-final {
+  color: #FFD700;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .precio-normal,
+  .precio-final {
+    font-size: 1.2rem;
+  }
+}
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-image {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#cuadroEstudiante {
+  width: 100%;
+  box-sizing: border-box;
+}
+.checkout-box-extra {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px dashed #e0b84c;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.box-texto {
+  margin: 5px 0 0 22px;
+  color: #666;
+  font-size: 13px;
+}
