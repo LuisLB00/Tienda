@@ -1,0 +1,1726 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiendas Nala - Plata 950</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="scaled-wrapper"></div>
+  <!-- ================= HEADER ================= -->
+<header class="header">
+<div class="logo">
+  <img src="img/logo.jpg" alt="Nala Joyas">
+  <span class="logo-nala">Nala</span>
+  <span class="logo-joyas">Joyas</span>
+</div>
+
+  <nav>
+    <button class="category-btn" data-category="todos">Todos</button>
+    <button class="category-btn" data-category="anillos">Anillos</button>
+    <button class="category-btn" data-category="pulseras">Pulseras</button>
+    <button class="category-btn" data-category="collares">Collares</button>
+  </nav>
+</header>
+
+
+ <!-- ================= SECCIÓN PRODUCTOS ================= -->
+<section id="productos" class="product-section">
+  <h2>✨ TIENDAS NALA</h2>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ================= DETALLE DE PRODUCTO ================= -->
+<section id="detalleProducto" class="detalle-producto" style="display:none;">
+
+  <div class="detalle-producto-container">
+
+    <!-- ========== GALERÍA IZQUIERDA ========== -->
+   <div class="gallery-container">
+  <div class="main-image">
+    <img id="detalleImagen" src="" alt="">
+  </div>
+  <div class="thumbnails" id="thumbnailsContainer"></div>
+  
+  <!-- Cuadro estudiante -->
+  <div id="cuadroEstudiante" style="background: linear-gradient(135deg, #FFF9E6, #FFFACD); 
+              border: 2px solid #D4AF37; 
+              border-radius: 10px; 
+              padding: 12px; 
+              margin-top: 12px;
+              display: none;
+              text-align: center;">
+    <strong style="color: #D4AF37; font-size: 0.95rem; display: block; margin-bottom: 6px;">🎓 ¿Eres estudiante?</strong>
+    <p style="margin: 0; color: #333; font-size: 0.85rem;">
+      Precio: <strong style="color: #000; font-size: 1.1rem;" id="precioEstudianteBox">S/ 45</strong>
+    </p>
+    <p style="font-size: 0.75rem; color: #666; margin: 6px 0 0 0; line-height: 1.3;">
+      📝 Envía tu código de estudiante o carnet para hacer valido tu descuento.
+    </p>
+  </div>
+</div>
+    <!-- ========== INFORMACIÓN DERECHA ========== -->
+    <div class="detalle-derecha">
+      <h1 id="detalleTitulo"></h1>
+      <p class="precio-detalle" id="detallePrecio"></p>
+      <p id="detalleDescripcion"></p>
+      <p id="detalleDescripcionExtra"></p>
+
+<!-- Tallas -->
+  <div class="tallas-container" id="tallasContainer">
+    <div>
+      <label for="tallaHombre">Talla Hombre:</label>
+      <select id="tallaHombre">
+        <option value="">Selecciona</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="tallaMujer">Talla Mujer:</label>
+      <select id="tallaMujer">
+        <option value="">Selecciona</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+      </select>
+    </div>
+  </div>
+
+      <p class="link-talla" id="linkTalla">
+        🤔 ¿No sabes tu talla?
+        <a href="https://sunmy8.github.io/MedidordeAnillos/" target="_blank">Haz clic aquí para medirla</a>
+      </p>
+
+      <div class="botones-detalle">
+        <button class="btn-compra" id="btnDetalleEntrega">Pago contra entrega</button>
+        <button class="btn-compra" id="btnDetalleComprar">Comprar ahora</button>
+        <button class="btn-volver" id="btnVolverCatalogo">← Volver al catálogo</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VIDEO + INFO DE GRABADO ================= -->
+<section class="detalle-video-grabado" id="grabado-info" style="display:none;">
+  <div class="grabado-contenido">
+    
+    <div class="grabado-info">
+      <h3>💎 Grabado Láser Gratis y Personalizado</h3>
+
+      <p>
+        En <strong>Tiendas Nala</strong>, tu historia nos importa ✨<br>
+        Por eso realizamos tu grabado totalmente <strong>gratis y personalizado</strong>, hecho con cariño para que cada anillo sea único 💕<br><br>
+
+        Personaliza con:<br>
+        💖 Nombres<br>
+        ✨ Iniciales<br>
+        📅 Fechas especiales<br><br>
+      </p>
+
+    </div>
+
+    <div class="grabado-video">
+      <video controls id="video-grabado">
+        <source id="src-grabado" src="" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= VIDEO PREMIUM ================= -->
+<section class="detalle-video-premium" id="premium-info" style="display:none;">
+  <div class="premium-contenido">
+    
+    <div class="premium-video">
+      <video controls id="video-premium">
+        <source id="src-premium" src="" type="video/mp4">
+      </video>
+    </div>
+  <div class="premium-info">
+      <h3>✨ SOLO POR ESTE MES🎄</h3>
+      <p>
+        🎁 Te obsequiamos una hermosa <strong>tarjeta dedicatoria</strong> para sorprender a tu persona especial 💌❤️<br><br>
+
+        Y porque la Navidad es pura magia 🎄🎉<br>
+        Incluimos una <strong>tarjeta navideña temática</strong>, llena de color, brillo y espíritu festivo 🎅🎀✨<br><br>
+
+        Puedes complementarlo con nuestro <strong>BOX NAVIDEÑO</strong> por solo <strong>S/20</strong> 🎁✨
+      </p>
+    </div>
+    </section>
+
+  <!-- ================= FORMULARIO DE COMPRA ================= -->
+  <div id="pagoModal" class="modal" style="display:none;">
+    <div class="form-content">
+      <span id="cerrarPago" class="close-form">&times;</span>
+      <h2>💎 Pago Contra Entrega</h2>
+
+      <div class="resumen">
+        <img id="pagoImg" src="" alt="Producto" style="width:120px;border-radius:8px;">
+        <div>
+          <h3 id="pagoNombre"></h3>
+          <p id="pagoPrecio"></p>
+        </div>
+      </div>
+
+      <form id="formPago">
+        <input type="text" id="nombrePago" placeholder="Nombre" required>
+        <input type="text" id="apellidoPago" placeholder="Apellido" required>
+        <input type="tel" id="telefonoPago" placeholder="Teléfono" required>
+        <input type="text" id="direccionPago" placeholder="Dirección" required>
+        <input type="text" id="ciudadPago" placeholder="Ciudad" required>
+        <input type="text" id="provinciaPago" placeholder="Provincia" required>
+        <input type="email" id="correoPago" placeholder="Correo electrónico" required>
+        
+        <div class="resumen-total">
+          <p>Subtotal: <span id="subtotal">S/ 0.00</span></p>
+          <p><strong>Total:</strong> <span id="total">S/ 0.00</span></p>
+        </div>
+
+        <button type="submit" class="btn-enviar">📩 Enviar Pedido</button>
+      </form>
+    </div>
+  </div>
+    
+<!-- ================= CHECKOUT ================= -->
+<section id="checkoutSection" style="display:none">
+
+  <div class="checkout-container">
+
+    <!-- ===== COLUMNA IZQUIERDA ===== -->
+    <div class="checkout-form">
+
+      <h2>Contacto</h2>
+      <input type="email" id="checkoutCorreo" class="input-field" placeholder="Correo electrónico">
+
+      <h2>Entrega</h2>
+      <input type="text" id="checkoutNombre" class="input-field" placeholder="Nombre">
+      <input type="text" id="checkoutApellido" class="input-field" placeholder="Apellidos">
+      <input type="text" id="checkoutDireccion" class="input-field" placeholder="Dirección">
+      <input type="tel" id="checkoutTelefono" class="input-field" placeholder="Teléfono">
+
+      <br><select id="checkoutRegion">
+  <option value="">Selecciona tu zona</option>
+  <option value="lima">Lima</option>
+  <option value="provincia">Provincia</option>
+</select>
+
+
+
+      <div id="campoUbicacion" style="display:none;">
+        <input type="text" id="checkoutUbicacionMaps" class="input-field"
+          placeholder="Pega tu ubicación de Google Maps 📍">
+      </div>
+
+      <div id="campoProvincia" style="display:none;">
+        <input type="text" id="checkoutCiudad" class="input-field" placeholder="Ciudad">
+        <input type="text" id="checkoutProvincia" class="input-field" placeholder="Provincia">
+      </div>
+
+      <h2>Método de envío</h2>
+<span id="envioTexto">GRATIS 🚚</span>
+
+
+<h2>Tipo de cliente</h2>
+
+<label style="display: block; margin-bottom: 10px;">
+  <input type="radio" name="tipoCliente" value="regular" checked> Cliente regular
+</label>
+
+<label style="display: block; margin-bottom: 10px;">
+  <input type="radio" name="tipoCliente" value="estudiante"> Estudiante
+</label>
+
+<div id="campoCodigoEstudiante" style="display:none; margin: 15px 0;">
+  <input type="text" id="codigoEstudiante" class="input-field" 
+         placeholder="Ingresa tu código de estudiante o N° de carnet">
+  <small style="color: #666; display: block; margin-top: 5px;">
+    📸 Adjunta foto de tu carnet por WhatsApp para validar
+  </small>
+</div>
+
+<div id="precioSeleccionado" style="background: #f9f9f9; padding: 12px; border-radius: 8px; margin: 15px 0; display: none;">
+  <p style="margin: 0; font-size: 1rem;">
+    <strong>Precio aplicado:</strong> 
+    <span id="precioAplicadoTexto" style="color: #D4AF37; font-size: 1.2rem; font-weight: 700;"></span>
+  </p>
+</div>
+
+      <h2>Pago</h2>
+
+<label>
+  <input type="radio" name="metodoPago" value="Plin" checked> Plin
+</label><br>
+
+<label>
+  <input type="radio" name="metodoPago" value="Transferencia"> Transferencia
+</label><br>
+
+<label>
+  <input type="radio" name="metodoPago" value="Yape"> Yape
+</label><br>
+
+<!-- BOTÓN VOLVER -->
+<button id="volverCatalogoBtn" class="btn-volver">
+  ← Volver atrás
+</button>
+
+    </div>
+
+   <!-- ===== COLUMNA DERECHA ===== -->
+<div class="checkout-resumen">
+
+  <img id="checkoutImg" src="" alt="Producto">
+
+  <h4 id="checkoutNombreProducto"></h4>
+  <p id="checkoutPrecio"></p>
+  <p>Talla: <strong><span id="checkoutTalla">-</span></strong></p>
+
+  <p>Subtotal: <span id="checkoutSubtotal"></span></p>
+
+  <p>Zona: <strong><span id="checkoutZona">-</span></strong></p>
+
+  <p>Envío: <span id="envioTextoResumen">GRATIS</span></p>
+
+  <p>Método de pago: <strong><span id="checkoutMetodoPago">-</span></strong></p>
+
+  <hr>
+
+  <p class="total">
+    Total: <span id="checkoutTotal"></span><br>
+    <small>(Adelanto <span id="checkoutAdelanto">S/ 20</span>)</small>
+  </p>
+
+  <button id="btnFinalizarWhatsApp" class="btn-principal">
+    💬 Finalizar pedido por WhatsApp
+  </button>
+
+</div>
+
+  </div>
+</section>
+
+
+<script>
+  // === CONFIGURACIÓN ===
+  const subtotal = 85;
+  const envioProvincia = 10;
+  const envioLima = 0;
+
+  // === ELEMENTOS HTML ===
+  const zonaSelect = document.getElementById("zona");
+  const radiosPago = document.querySelectorAll("input[name='metodoPago']");
+  const spanEnvio = document.getElementById("checkoutUbicacion");
+  const spanMetodoPago = document.getElementById("checkoutMetodoPago");
+  const spanTotal = document.getElementById("checkoutTotal");
+  const spanAdelanto = document.getElementById("checkoutAdelanto");
+
+  // === FUNCIÓN PRINCIPAL ===
+function actualizarResumen() {
+  const zona = document.getElementById("checkoutRegion").value;
+  const envioTexto = document.getElementById("resumenEnvio");
+  const adelantoTexto = document.getElementById("resumenAdelanto");
+  const metodoPago = document.querySelector('input[name="metodoPago"]:checked')?.value || "";
+
+  // Tallas
+  const tallaHombre = document.getElementById("tallaHombre").value;
+  const tallaMujer = document.getElementById("tallaMujer").value;
+  const resumenTallas = document.getElementById("resumenTallas");
+
+  resumenTallas.textContent = `Hombre: ${tallaHombre} | Mujer: ${tallaMujer}`;
+
+  if (zona === "lima") {
+    envioTexto.textContent = "GRATIS";
+    adelantoTexto.textContent = "(Adelanto S/20)";
+  } else if (zona === "provincia") {
+    envioTexto.textContent = "S/10";
+    adelantoTexto.textContent = "(Adelanto S/30)";
+  }
+}
+
+// Eventos que actualizan todo
+document.getElementById("checkoutRegion").addEventListener("change", actualizarResumen);
+document.getElementById("tallaHombre").addEventListener("change", actualizarResumen);
+document.getElementById("tallaMujer").addEventListener("change", actualizarResumen);
+
+  // === EVENTOS ===
+  if (zonaSelect) zonaSelect.addEventListener("change", actualizarResumen);
+  radiosPago.forEach(r => r.addEventListener("change", actualizarResumen));
+
+  // Inicializar al cargar
+  actualizarResumen();
+</script>
+
+
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const productGrid = document.getElementById("productGrid");
+  const detalleProducto = document.getElementById("detalleProducto");
+  const productosSection = document.getElementById("productos");
+
+  //ANILLOS DORADOS A TALLA Y AJUSTABLES
+const productos = [
+
+/* =====================================================
+   🟡 ANILLOS DORADOS
+===================================================== */
+
+{
+  "nombre": "Anillo Realeza",
+  "precio": 85,
+  "descripcion": "Un par de anillos de acero inoxidable bañados en oro, perfectos para sellar su amor con elegancia y brillo✨<br><br>Un diseño romántico , él con un delicado entrelazado que simboliza su unión, y ella con una hermosa piedra central que ilumina cada momento juntos🧑🏻‍❤️‍👩🏻<br><br>🎁 <strong>Incluye GRATIS:</strong><br><ul><li>✨ Grabado láser</li><li>💌 Acta de promesa de amor</li><li>🎀 Tarjeta dedicatoria</li></ul><br>📦🏍️ Envío a todo el Perú",
+  "imagenes": ["img/adrealeza.png", "img/realeza2.jpeg"],
+  "videos": {
+    "grabado": "videos/adrealeza.mp4",
+    "premium": "videos/pareja.mp4"
+  },
+  "categoria": "anillos",
+  "ajustable": true
+},
+
+{
+  nombre: "Anillo Girasol",
+  precio: 85,  descripcion: "Anillo dorado con diseño de girasol giratorio, elaborado en acero inoxidable bañado en oro y decorado con delicadas piedras brillantes ✨ Gira suavemente, convirtiéndolo en un anillo antiestrés ideal para relajarte mientras luces un accesorio elegante 💕<br><br> Un detalle hermoso que simboliza luz, alegría y calma, perfecto para regalar a tu persona especial🌻✨",
+
+  imagenes: ["img/girasol.png", "img/anilloycollargirasol.png"],
+  videos: {
+    grabado: "videos/girasol-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Tiara",
+  precio: 85,
+  descripcion: "Estos son dos anillos, elaborado en acero inoxidable bañado en oro, presentado en un elegante estuche rojo que realza su significado especial🤗✨ Sus diseños dorados con piedras brillantes aportan un toque de elegancia y romanticismo💖<br><br> Un detalle ideal para simbolizar amor y compromiso, perfecto para regalar en aniversarios o momentos inolvidables 💍✨",
+  imagenes: ["img/adtiara.jpeg", "img/box.png"],
+  videos: {
+    grabado: "videos/tiara-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Corona",
+  precio: 85,
+  descripcion: "Son elaborados en acero inoxidable bañado en oro, con un diseño delicado y romántico✨💕 Él con un estilo clásico realzado por una piedra brillante, y ella con un diseño tipo corona con corazones, decorado con detalles que aportan brillo y elegancia🎀<br><br>Un detalle perfecto para simbolizar amor, unión y compromiso, ideal para regalar en ocasiones especiales o sorprender a tu persona favorita💍✨",
+  imagenes: ["img/adcorona.jpeg"],
+  videos: {
+    grabado: "videos/corona-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Destello de Amor",
+  precio: 85,
+  descripcion: "Son elaborados en acero inoxidable bañado en oro, lo que les brinda un brillo duradero, alta resistencia y un acabado premium ideal para el uso diario para compartir un sentimiento único.",
+  imagenes: ["img/addestellos.jpeg"],
+  videos: {
+    grabado: "videos/destello-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Venus",
+  precio: 85,
+  descripcion: "Anillo Venus dorado.",
+  imagenes: ["img/advenus.jpg"],
+  videos: {
+    grabado: "videos/venus-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Ecos de Amor",
+  precio: 85,
+  descripcion: "Diseño romántico con ecos de amor.",
+  imagenes: ["img/adecos.jpeg"],
+  videos: {
+    grabado: "videos/ecos-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Brillo de Amor",
+  precio: 85,
+  descripcion: "Brillo especial.",
+  imagenes: ["img/adbrillodeamor.png"],
+  videos: {
+    grabado: "videos/brillodeamor-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Eternidad",
+  precio: 85,
+  descripcion: "Símbolo de amor eterno.",
+  imagenes: ["img/eternidad.png"],
+  videos: {
+    grabado: "videos/eternidad-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Lisos",
+  precio: 85,
+  descripcion: "Diseño liso elegante.",
+  imagenes: ["img/adlisosdorados.jpg"],
+  videos: {
+    grabado: "videos/lisosdorados-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Aurora",
+  precio: 85,
+  descripcion: "Anillo aurora dorado.",
+  imagenes: ["img/aurora.png"],
+  videos: {
+    grabado: "videos/aurora-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Siempre Juntos",
+  precio: 85,
+  descripcion: "Anillo ideal para parejas.",
+  imagenes: ["img/siempre.jpeg"],
+  videos: {
+    grabado: "videos/siempre-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Mirana",
+  precio: 85,
+  descripcion: "Anillo Mirana dorado.",
+  imagenes: ["img/mirana.jpg"],
+  videos: {
+    grabado: "videos/mirana-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Cruzados",
+  precio: 85,
+  descripcion: "Anillo cruzado elegante.",
+  imagenes: ["img/adcruzados.png"],
+  videos: {
+    grabado: "videos/cruzados-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Ondas",
+  precio: 85,
+  descripcion: "Diseño ondulado.",
+  imagenes: ["img/adondas.jpeg"],
+  videos: {
+    grabado: "videos/ondas-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Promesa Eterna",
+  precio: 85,
+  descripcion: "Promesa que dura para siempre.",
+  imagenes: ["img/adpromesa.png"],
+  videos: {
+    grabado: "videos/promesa-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Amor Incondicional",
+  precio: 85,
+  descripcion: "Promesa que dura para siempre.",
+  imagenes: ["img/AmorIncondicional.jpeg"],
+  videos: {
+    grabado: "videos/amorincondicional-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Promesa Sin Fin",
+  precio: 85,
+  descripcion: "Promesa que dura para siempre.",
+  imagenes: ["img/PromesaSinFin.jpeg"],
+  videos: {
+    grabado: "videos/promesasinfin-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Real Love",
+  precio: 85,
+  descripcion: "Real Love.",
+  imagenes: ["img/RealLove.jpg"],
+  videos: {
+    grabado: "videos/reallove-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+
+/* =====================================================
+   ⚪ ANILLOS PLATEADOS
+===================================================== */
+
+{
+  nombre: "Anillo Laurel",
+  precio: 70,
+  descripcion: "Anillo plateado con diseño de laurel.",
+  imagenes: ["img/aplaurel.png"],
+  videos: {
+    grabado: "videos/laurel-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Realeza Plateado",
+  precio: 70,
+  descripcion: "Versión plateada del Realeza.",
+  imagenes: ["img/aprealeza.jpg"],
+  videos: {
+    grabado: "videos/realezaP-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Love",
+  precio: 70,
+  descripcion: "Anillo Love plateado.",
+  imagenes: ["img/aplove.jpg"],
+  videos: {
+    grabado: "videos/love-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Infinito",
+  precio: 70,
+  descripcion: "Símbolo de infinito.",
+  imagenes: ["img/apinfinito.png"],
+  videos: {
+    grabado: "videos/infinito-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Forever",
+  precio: 70,
+  descripcion: "Forever plateado.",
+  imagenes: ["img/apforever.jpg"],
+  videos: {
+    grabado: "videos/forever-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Rey y Reina",
+  precio: 70,
+  descripcion: "Juego Rey y Reina.",
+  imagenes: ["img/apreyyreina.png"],
+  videos: {
+    grabado: "videos/reyyreina-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Corona Plateado",
+  precio: 70,
+  descripcion: "Corona plateada.",
+  imagenes: ["img/apcorona.jpeg"],
+  videos: {
+    grabado: "videos/coronap-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Tiara Plateado",
+  precio: 70,
+  descripcion: "Tiara plateada.",
+  imagenes: ["img/aptiara.png"],
+  videos: {
+    grabado: "videos/tiarap-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Sol y Luna",
+  precio: 70,
+  descripcion: "Pareja Sol y Luna.",
+  imagenes: ["img/apsolyluna.jpeg"],
+  videos: {
+    grabado: "videos/solyluna-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Lazo",
+  precio: 70,
+  descripcion: "Diseño de lazo.",
+  imagenes: ["img/aplazo.jpg"],
+  videos: {
+    grabado: "videos/lazo-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos",
+  ajustable: true
+},
+
+{
+  nombre: "Anillo Mitad",
+  precio: 70,
+  descripcion: "Mitad y mitad.",
+  imagenes: ["img/apmitad.png"],
+  videos: {
+    grabado: "videos/mitad-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Lisos Plateado",
+  precio: 70,
+  descripcion: "Lisos plateados.",
+  imagenes: ["img/apliso.jpg"],
+  videos: {
+    grabado: "videos/lisosp-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+{
+  nombre: "Anillo Mirana Plateado",
+  precio: 85,
+  descripcion: "Mirana versión plata.",
+  imagenes: ["img/apmirana.png"],
+  videos: {
+    grabado: "videos/miranap-grabado.mp4",
+    premium: "videos/pareja.mp4"
+  },
+  categoria: "anillos"
+},
+
+
+/* =====================================================
+   🔗 PULSERAS
+===================================================== */
+
+{
+  nombre: "Pulsera Llave Plateado",
+  precio: 85,
+  descripcion: "Pulsera llave plateada.",
+  imagenes: ["img/PULSllave.png"],
+  videos: {
+    grabado: "videos/llave-grabado.mp4",
+    premium: "videos/PulseraLlave.mp4"
+  },
+  categoria: "pulseras"
+},
+
+{
+  nombre: "Pulsera Personalizable",
+  precio: 85,
+  descripcion: "Ideal para nombres o iniciales.",
+  imagenes: ["img/PULSpersonalizada.jpeg"],
+  videos: {
+    grabado: "videos/personalizada-grabado.mp4",
+    premium: "videos/personalizada-premium.mp4"
+  },
+  categoria: "pulseras"
+},
+
+{
+  nombre: "Pulsera Imán Corazón",
+  precio: 60,
+  descripcion: "Imán corazón, perfecta para parejas.",
+  imagenes: ["img/PULSiman.jpeg"],
+  videos: {
+    grabado: "videos/iman-grabado.mp4",
+    premium: "videos/iman-premium.mp4"
+  },
+  categoria: "pulseras"
+},
+
+{
+  nombre: "Pulsera Nylon Imán",
+  precio: 50,
+  descripcion: "Doble nylon con imán.",
+  imagenes: ["img/PULSnyloniman.png"],
+  videos: {
+    grabado: "videos/nylon-grabado.mp4",
+    premium: "videos/nylon-premium.mp4"
+  },
+  categoria: "pulseras"
+},
+
+
+/* =====================================================
+   💎 COLLARES
+===================================================== */
+
+{
+  nombre: "Collar Trebol 2 en 1",
+  precio: 50,
+  descripcion: "Collar trébol, doble posición.",
+  imagenes: ["img/COtrebol.jpeg"],
+  videos: {
+    grabado: "videos/trebol-grabado.mp4",
+    premium: "videos/trebol-premium.mp4"
+  },
+  categoria: "collares"
+},
+
+{
+  nombre: "Collar Reflector",
+  precio: 60,
+  descripcion: "Collar con reflector especial.",
+  imagenes: ["img/COreflector.png"],
+  videos: {
+    grabado: "videos/reflector-grabado.mp4",
+    premium: "videos/reflector-premium.mp4"
+  },
+  categoria: "collares"
+},
+
+{
+  nombre: "Collar Girasol con Tallo",
+  precio: 60,
+  descripcion: "Collar girasol hermoso.",
+  imagenes: ["img/COgirasol.jpeg"],
+  videos: {
+    grabado: "videos/girasolC-grabado.mp4",
+    premium: "videos/girasolC-premium.mp4"
+  },
+  categoria: "collares"
+},
+
+{
+  nombre: "Collar Saturno",
+  precio: 70,
+  descripcion: "Saturno elegante.",
+  imagenes: ["img/COsaturno.jpeg"],
+  videos: {
+    grabado: "videos/saturno-grabado.mp4",
+    premium: "videos/saturno-premium.mp4"
+  },
+  categoria: "collares"
+}
+
+];
+
+
+function mostrarProductos(categoria = "todos") {
+    productGrid.innerHTML = "";
+    const filtrados = categoria === "todos" ? productos : productos.filter(p => p.categoria === categoria);
+
+    filtrados.forEach((p) => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      // Calcular precio estudiante según categoría
+      let precioEstudiante;
+      let descuento;
+      
+      if (p.categoria === "anillos") {
+        if (p.precio === 70) {
+          precioEstudiante = 40;
+          descuento = "43% OFF";
+        } else {
+          precioEstudiante = 45;
+          descuento = "47% OFF";
+        }
+      } else if (p.categoria === "collares") {
+        precioEstudiante = 40;
+        descuento = "33% OFF";
+      } else if (p.categoria === "pulseras") {
+        precioEstudiante = 40;
+        descuento = "20% OFF";
+      }
+
+      card.innerHTML = `
+<img src="${p.imagenes ? p.imagenes[0] : p.imagen}" alt="${p.nombre}">
+        <h3>${p.nombre}</h3>
+        <div class="precios-container">
+          <div class="precio-normal">S/ ${p.precio}</div>
+          <div class="precio-estudiante">
+            <span class="badge-descuento">${descuento}</span>
+            <div class="label-estudiante">Estudiante</div>
+            <div class="precio-final">S/ ${precioEstudiante}</div>
+          </div>
+        </div>
+${p.ajustable ? '<p class="talla">📏 Ajustable</p>' 
+: p.tallas ? `<p class="talla">Tallas disponibles: ${p.tallas.join(", ")}</p>` 
+: ''}
+      `;
+      productGrid.appendChild(card);
+
+ card.addEventListener("click", () => {
+limpiarTodosLosDatos();
+
+document.getElementById("detalleImagen").src = p.imagenes ? p.imagenes[0] : p.imagen;
+document.getElementById("detalleTitulo").textContent = p.nombre;
+document.getElementById("detallePrecio").textContent = "S/ " + p.precio;
+
+// Calcular y mostrar precio estudiante
+let precioEstudiante;
+if (p.categoria === "anillos") {
+  precioEstudiante = p.precio === 70 ? 40 : 45;
+} else if (p.categoria === "collares") {
+  precioEstudiante = 40;
+} else if (p.categoria === "pulseras") {
+  precioEstudiante = 40;
+}
+
+document.getElementById("precioEstudianteBox").textContent = "S/ " + precioEstudiante;
+document.getElementById("cuadroEstudiante").style.display = "block";
+        // ------- VIDEO 1 (GRABADO) -------
+document.getElementById("src-grabado").src = p.videos?.grabado || "";
+document.getElementById("video-grabado").load();
+
+// ------- VIDEO 2 (PREMIUM) -------
+document.getElementById("src-premium").src = p.videos?.premium || "";
+document.getElementById("video-premium").load();
+
+// Mostrar las secciones de video
+document.getElementById("grabado-info").style.display = "block";
+document.getElementById("premium-info").style.display = "block";
+
+
+        // NUEVO — descripción extra
+document.getElementById("detalleDescripcionExtra").innerText = p.descripcionExtra || "";
+// MINIATURAS DINÁMICAS REALES
+const thumbnailsContainer = document.getElementById("thumbnailsContainer");
+thumbnailsContainer.innerHTML = "";
+
+const imagenes = p.imagenes || [p.imagen];
+
+imagenes.forEach((img, index) => {
+  const thumb = document.createElement("img");
+  thumb.src = img;
+
+  if (index === 0) thumb.classList.add("active");
+
+  thumb.addEventListener("click", () => {
+    document.getElementById("detalleImagen").src = img;
+
+    document.querySelectorAll(".thumbnails img")
+      .forEach(t => t.classList.remove("active"));
+    
+    thumb.classList.add("active");
+  });
+
+  thumbnailsContainer.appendChild(thumb);
+});
+
+
+        const tallasContainer = document.getElementById("tallasContainer");
+        const linkTalla = document.getElementById("linkTalla");
+
+
+      // 🔹 NUEVO CONTROL DE AJUSTABLE
+if (p.categoria === "anillos") {
+  if (p.ajustable) {
+    tallasContainer.style.display = "none";
+    linkTalla.style.display = "none";
+    
+    // Calcular precio estudiante
+    let precioEstudiante;
+    if (p.precio === 70) {
+      precioEstudiante = 40;
+    } else {
+      precioEstudiante = 45;
+    }
+    
+    document.getElementById("detalleDescripcion").innerHTML = `
+      ${p.descripcion}<br><br>
+      <strong>📏 Talla:</strong> Ajustable (no requiere medida)
+    `;
+          } else {
+            tallasContainer.style.display = "flex";
+            linkTalla.style.display = "block";
+          }
+        } else {
+          tallasContainer.style.display = "none";
+          linkTalla.style.display = "none";
+        }
+
+        detalleProducto.style.display = "block";
+        productosSection.style.display = "none";
+        document.getElementById("grabado-info").style.display = "flex";
+        document.getElementById("premium-info").style.display = "flex";
+
+      });
+    });
+  }
+
+  mostrarProductos("todos");
+
+  document.querySelectorAll(".category-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const categoria = btn.getAttribute("data-category");
+      mostrarProductos(categoria);
+    });
+  });
+
+document.getElementById("btnVolverCatalogo").addEventListener("click", () => {
+  limpiarTodosLosDatos();
+
+  detalleProducto.style.display = "none";
+  productosSection.style.display = "block";
+  document.getElementById("grabado-info").style.display = "none";
+  document.getElementById("premium-info").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+
+  const pagoModal = document.getElementById("pagoModal");
+  const cerrarPago = document.getElementById("cerrarPago");
+  const formPago = document.getElementById("formPago");
+
+  const pagoImg = document.getElementById("pagoImg");
+  const pagoNombre = document.getElementById("pagoNombre");
+  const pagoPrecio = document.getElementById("pagoPrecio");
+  const subtotal = document.getElementById("subtotal");
+  const total = document.getElementById("total");
+
+  function abrirFormulario() {
+    document.getElementById("premium-info").style.display = "none";
+    pagoModal.style.display = "flex";
+    const nombre = document.getElementById("detalleTitulo").textContent;
+    const precio = document.getElementById("detallePrecio").textContent;
+    const imagen = document.getElementById("detalleImagen").src;
+    pagoImg.src = imagen;
+    pagoNombre.textContent = nombre;
+    pagoPrecio.textContent = precio;
+    subtotal.textContent = precio;
+    total.textContent = precio;
+  }
+
+// Botón "Pago contra entrega" sigue igual
+document.getElementById("btnDetalleEntrega").addEventListener("click", abrirFormulario);
+// === CONTROL DE TIPO DE CLIENTE ===
+// === CONTROL DE TIPO DE CLIENTE ===
+let productoActual = null;
+let precioOriginal = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const radiosCliente = document.querySelectorAll("input[name='tipoCliente']");
+  const campoCodigoEstudiante = document.getElementById("campoCodigoEstudiante");
+  const precioSeleccionado = document.getElementById("precioSeleccionado");
+  const mensajeEstudianteLima = document.getElementById("mensajeEstudianteLima");
+  const regionSelect = document.getElementById("checkoutRegion");
+  
+  radiosCliente.forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "estudiante") {
+        campoCodigoEstudiante.style.display = "block";
+        mensajeEstudianteLima.style.display = "block";
+        
+        // Forzar selección de Lima
+        regionSelect.value = "lima";
+        regionSelect.disabled = true;
+        
+        // Actualizar campos de envío
+        document.getElementById("campoUbicacion").style.display = "block";
+        document.getElementById("campoProvincia").style.display = "none";
+        
+      } else {
+        campoCodigoEstudiante.style.display = "none";
+        mensajeEstudianteLima.style.display = "none";
+        document.getElementById("codigoEstudiante").value = "";
+        
+        // Habilitar selección de región
+        regionSelect.disabled = false;
+        precioSeleccionado.style.display = "none";
+      }
+      actualizarPrecioCheckout();
+    });
+  });
+  
+  document.getElementById("codigoEstudiante")?.addEventListener("input", () => {
+    actualizarPrecioCheckout();
+  });
+});
+let precioFinalCheckout = 0;
+precioFinalCheckout = precioFinal;
+
+function actualizarPrecioCheckout() {
+  if (!productoActual) {
+    console.log("❌ No hay producto actual");
+    return;
+  }
+  
+  console.log("🔄 Actualizando precio checkout...");
+  
+  const tipoCliente = document.querySelector("input[name='tipoCliente']:checked")?.value;
+  const codigoEstudiante = document.getElementById("codigoEstudiante")?.value || "";
+  const region = document.getElementById("checkoutRegion").value;
+  
+  console.log("👤 Tipo cliente:", tipoCliente);
+  console.log("🎓 Código:", codigoEstudiante);
+  console.log("📍 Región:", region);
+  console.log("💰 Precio original:", precioOriginal);
+  console.log("📦 Producto:", productoActual);
+  
+  let precioFinal = precioOriginal;
+  
+  // Aplicar descuento estudiante
+  if (tipoCliente === "estudiante" && codigoEstudiante.trim() !== "") {
+    if (productoActual.categoria === "anillos") {
+      precioFinal = productoActual.precio === 70 ? 40 : 45;
+    } else if (productoActual.categoria === "collares") {
+      precioFinal = 40;
+    } else if (productoActual.categoria === "pulseras") {
+      precioFinal = 40;
+    }
+    
+    console.log("✅ Descuento aplicado! Nuevo precio:", precioFinal);
+    
+    const precioAplicadoTexto = document.getElementById("precioAplicadoTexto");
+    const precioSeleccionado = document.getElementById("precioSeleccionado");
+    
+    if (precioAplicadoTexto) {
+      precioAplicadoTexto.textContent = `S/ ${precioFinal} (Descuento estudiante 🎓)`;
+      precioAplicadoTexto.style.color = "#27ae60";
+    }
+    
+    if (precioSeleccionado) {
+      precioSeleccionado.style.display = "block";
+    }
+  } else {
+    const precioSeleccionado = document.getElementById("precioSeleccionado");
+    if (precioSeleccionado) {
+      precioSeleccionado.style.display = "none";
+    }
+  }
+  
+  // Calcular envío
+  let costoEnvio = 0;
+  if (region === "provincia") {
+    costoEnvio = 10;
+  }
+  
+  const totalFinal = precioFinal + costoEnvio;
+  
+  console.log("📊 Precio final:", precioFinal);
+  console.log("🚚 Costo envío:", costoEnvio);
+  console.log("💵 Total:", totalFinal);
+  
+  // Actualizar TODOS los elementos del resumen
+  const elementos = {
+    checkoutSubtotal: document.getElementById("checkoutSubtotal"),
+    checkoutPrecio: document.getElementById("checkoutPrecio"),
+    checkoutTotal: document.getElementById("checkoutTotal"),
+    envioTextoResumen: document.getElementById("envioTextoResumen"),
+    checkoutAdelanto: document.getElementById("checkoutAdelanto")
+  };
+  
+  if (elementos.checkoutSubtotal) {
+    elementos.checkoutSubtotal.textContent = `S/ ${precioFinal}`;
+  }
+  
+  if (elementos.checkoutPrecio) {
+    elementos.checkoutPrecio.textContent = `S/ ${precioFinal}`;
+  }
+  
+  if (elementos.checkoutTotal) {
+    elementos.checkoutTotal.textContent = `S/ ${totalFinal}`;
+  }
+  
+  if (elementos.envioTextoResumen) {
+    elementos.envioTextoResumen.textContent = region === "lima" ? "GRATIS" : "S/ 10";
+  }
+  
+  if (elementos.checkoutAdelanto) {
+    elementos.checkoutAdelanto.textContent = region === "lima" ? "S/ 20" : "S/ 30";
+  }
+  
+  console.log("✅ Precios actualizados en el DOM");
+}
+// Botón "Comprar ahora" → Ir directo al checkout
+document.getElementById("btnDetalleComprar").addEventListener("click", () => {
+  document.getElementById("premium-info").style.display = "none";
+  // Guardar producto actual
+  const precioTexto = document.getElementById("detallePrecio").textContent.replace("S/ ", "");
+  precioOriginal = parseFloat(precioTexto);
+  
+  // Buscar el producto en el array
+  const nombreProducto = document.getElementById("detalleTitulo").textContent;
+  productoActual = productos.find(p => p.nombre === nombreProducto);
+  
+  console.log("🛒 COMPRAR AHORA - Producto guardado:");
+  console.log("   Nombre:", nombreProducto);
+  console.log("   Precio original:", precioOriginal);
+  console.log("   Producto encontrado:", productoActual);
+
+  // Ocultar todo lo anterior
+  document.getElementById("pagoModal").style.display = "none";
+  document.getElementById("detalleProducto").style.display = "none";
+  document.getElementById("productos").style.display = "none";
+  document.getElementById("grabado-info").style.display = "none";
+  document.getElementById("premium-info").style.display = "none";
+
+  // Mostrar el checkout
+  const checkoutSection = document.getElementById("checkoutSection");
+  checkoutSection.style.display = "block";
+
+// Rellenar información del producto
+  document.getElementById("checkoutImg").src = document.getElementById("detalleImagen").src;
+  document.getElementById("checkoutNombreProducto").textContent = nombreProducto;
+  document.getElementById("checkoutPrecio").textContent = `S/ ${precioOriginal}`;
+  document.getElementById("checkoutSubtotal").textContent = `S/ ${precioOriginal}`;
+  document.getElementById("checkoutTotal").textContent = `S/ ${precioOriginal}`;
+  
+  console.log("✅ Datos del checkout llenados");
+  console.log("   productoActual está definido:", productoActual !== null);
+  
+  // Resetear tipo de cliente
+  document.querySelector("input[name='tipoCliente'][value='regular']").checked = true;
+  document.getElementById("campoCodigoEstudiante").style.display = "none";
+  document.getElementById("precioSeleccionado").style.display = "none";
+  
+  // IMPORTANTE: Llamar a actualizar para inicializar precios
+  actualizarPrecioCheckout();
+});
+
+  // === POPUP DESCUENTO ===
+  function mostrarPopupDescuento() {
+    const popup = document.createElement("div");
+    popup.classList.add("popup-descuento");
+    popup.innerHTML = `
+      <div class="popup-contenido">
+        <h2>🎉 ¡Oferta Especial!</h2>
+        <p>Te damos <strong>30% de descuento</strong> si completas tu pedido ahora 💎</p>
+        <div class="popup-botones">
+          <button id="aceptarDescuento" class="btn-aceptar">Aprovechar Descuento</button>
+          <button id="rechazarDescuento" class="btn-rechazar">No, gracias</button>
+        </div>
+      </div>
+    `;
+
+    const subtotal = document.getElementById("checkoutSubtotal");
+const total = document.getElementById("checkoutTotal");
+const pagoPrecio = document.getElementById("pagoPrecio");
+
+    document.body.appendChild(popup);
+
+    document.getElementById("aceptarDescuento").addEventListener("click", () => {
+      const precioTexto = document.getElementById("detallePrecio").textContent.replace("S/ ", "");
+      const precio = parseFloat(precioTexto);
+      const precioFinal = (precio * 0.7).toFixed(2);
+
+      subtotal.textContent = `S/ ${precio.toFixed(2)}`;
+      total.textContent = `S/ ${precioFinal}`;
+      pagoPrecio.textContent = `S/ ${precioFinal} (30% OFF 🎉)`;
+
+      popup.remove();
+      const mensaje = document.createElement("div");
+      mensaje.classList.add("mensaje-descuento-aplicado");
+      mensaje.textContent = "🎊 ¡Descuento del 30% aplicado! Completa tu pedido ahora 💍";
+      document.querySelector(".form-content").appendChild(mensaje);
+      setTimeout(() => mensaje.remove(), 4000);
+    });
+
+    document.getElementById("rechazarDescuento").addEventListener("click", () => {
+      popup.remove();
+      pagoModal.style.display = "none";
+    });
+  }
+
+  // === CONTROL: Mostrar descuento solo la primera vez ===
+  let descuentoMostrado = false;
+
+  cerrarPago.addEventListener("click", () => {
+    if (!descuentoMostrado) {
+      mostrarPopupDescuento();
+      descuentoMostrado = true;
+    } else {
+      pagoModal.style.display = "none";
+    }
+  });
+
+  // === ENVÍO WHATSAPP-PAGO CONTRAENTREGA ===
+  formPago.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nombreCliente = document.getElementById("nombrePago").value;
+    const apellido = document.getElementById("apellidoPago").value;
+    const telefono = document.getElementById("telefonoPago").value;
+    const direccion = document.getElementById("direccionPago").value;
+    const ciudad = document.getElementById("ciudadPago").value;
+    const provincia = document.getElementById("provinciaPago").value;
+    const correo = document.getElementById("correoPago").value;
+
+    const producto = pagoNombre.textContent;
+    const precio = pagoPrecio.textContent;
+
+    const mensaje = `
+🛍 *Nuevo pedido Tiendas Nala* 💎
+----------------------------------
+👤 *Cliente:* ${nombreCliente} ${apellido}
+📞 *Teléfono:* ${telefono}
+📧 *Correo:* ${correo}
+
+📦 *Producto:* ${producto}
+💰 *Precio:* ${precio}
+
+🏠 *Dirección:* ${direccion}
+🏙 *Ciudad:* ${ciudad}
+🌍 *Provincia:* ${provincia}
+----------------------------------
+💬 Enviado desde la tienda web.
+    `;
+
+    const numero = "924948674";
+    const url = `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+    pagoModal.style.display = "none";
+    formPago.reset();
+  });
+});
+
+// === FINALIZAR PEDIDO POR WHATSAPP - COMPRAR AHORA ===
+document.getElementById("btnFinalizarWhatsApp").addEventListener("click", () => {
+  const nombre = document.getElementById("checkoutNombre").value;
+  const apellido = document.getElementById("checkoutApellido").value;
+  const correo = document.getElementById("checkoutCorreo").value;
+  const telefono = document.getElementById("checkoutTelefono").value;
+  const region = document.getElementById("checkoutRegion").value;
+  const producto = document.getElementById("checkoutNombreProducto").textContent;
+  
+  const tallaHombre = document.getElementById("tallaHombre").value || "No aplica";
+  const tallaMujer = document.getElementById("tallaMujer").value || "No aplica";
+  
+  const metodoPago = document.querySelector('input[name="metodoPago"]:checked')?.value || "";
+  const tipoCliente = document.querySelector("input[name='tipoCliente']:checked")?.value || "regular";
+  const codigoEstudiante = document.getElementById("codigoEstudiante")?.value || "";
+  
+  // Obtener precios del resumen
+  const subtotal = document.getElementById("checkoutSubtotal").textContent;
+  const total = document.getElementById("checkoutTotal").textContent;
+  const envio = document.getElementById("envioTextoResumen").textContent;
+  const adelanto = document.getElementById("checkoutAdelanto").textContent;
+  
+  let mensajeTipoCliente = "Cliente regular";
+  if (tipoCliente === "estudiante" && codigoEstudiante.trim() !== "") {
+    mensajeTipoCliente = `🎓 Estudiante (Código: ${codigoEstudiante})`;
+  }
+  
+  const numero = "924948674";
+  
+  const mensaje = `
+🛍 *Nuevo pedido Tiendas Nala* 💎
+----------------------------------
+👤 *Cliente:* ${nombre} ${apellido}
+📧 *Correo:* ${correo}
+📞 *Teléfono:* ${telefono}
+
+📦 *Producto:* ${producto}
+👨‍🦱 *Talla Hombre:* ${tallaHombre}
+👩‍🦰 *Talla Mujer:* ${tallaMujer}
+
+👥 *Tipo:* ${mensajeTipoCliente}
+
+💰 *Subtotal:* ${subtotal}
+🚚 *Envío:* ${envio}
+💵 *Total:* ${total}
+💳 *Adelanto:* ${adelanto}
+💳 *Método de pago:* ${metodoPago}
+🌍 *Zona:* ${region.toUpperCase()}
+----------------------------------
+💬 Enviado desde la tienda web.
+`;
+  
+  const url = `https://wa.me/51${numero}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+});
+
+// === MOSTRAR CHECKOUT ===
+const btnComprarAhora = document.getElementById("btnDetalleComprar");
+const checkoutSection = document.getElementById("checkoutSection");
+
+btnComprarAhora.addEventListener("click", () => {
+  // Ocultar las secciones actuales
+  document.getElementById("detalleProducto").style.display = "none";
+  document.getElementById("productos").style.display = "none";
+  document.getElementById("grabado-info").style.display = "none";
+  document.getElementById("pagoModal").style.display = "none";
+  // 🔴 Ocultamos el box navideño
+  document.getElementById("premium-info").style.display = "none";
+  // Mostrar el checkout
+  checkoutSection.style.display = "block";
+
+  // Rellenar los datos del producto seleccionado
+  document.getElementById("checkoutImg").src = document.getElementById("detalleImagen").src;
+document.getElementById("checkoutNombreProducto").textContent = document.getElementById("detalleTitulo").textContent;
+  document.getElementById("checkoutPrecio").textContent = document.getElementById("detallePrecio").textContent;
+  document.getElementById("checkoutSubtotal").textContent = document.getElementById("detallePrecio").textContent;
+  document.getElementById("checkoutTotal").textContent = document.getElementById("detallePrecio").textContent;
+});
+// === BOTÓN VOLVER DESDE CHECKOUT ===
+document.getElementById("volverCatalogoBtn").addEventListener("click", () => {
+  limpiarTodosLosDatos();
+
+  document.getElementById("checkoutSection").style.display = "none";
+  document.getElementById("productos").style.display = "block";
+  document.getElementById("detalleProducto").style.display = "none";
+  document.getElementById("grabado-info").style.display = "none";
+
+  // Si tienes una sección de recomendados, la ocultamos o mostramos según quieras
+  const recomendados = document.getElementById("recomendados");
+  if (recomendados) recomendados.style.display = "block";
+});
+
+// === CONFIGURACIÓN DE ENVÍO SEGÚN REGIÓN ===
+const regionSelect = document.getElementById("checkoutRegion");
+const campoUbicacion = document.getElementById("campoUbicacion");
+const campoProvincia = document.getElementById("campoProvincia");
+const envioOpcion = document.getElementById("envioTexto");
+const checkoutTotal = document.getElementById("checkoutTotal");
+const checkoutSubtotal = document.getElementById("checkoutSubtotal");
+
+function actualizarEnvio() {
+  const region = regionSelect.value;
+  const subtotalTexto = checkoutSubtotal.textContent.replace("S/ ", "");
+  const subtotalProducto = parseFloat(subtotalTexto);
+
+  if (region === "lima") {
+    campoUbicacion.style.display = "block";
+    campoProvincia.style.display = "none";
+
+    envioOpcion.textContent = "GRATIS 🚚";
+    checkoutTotal.textContent = `S/ ${subtotalProducto.toFixed(2)} (Adelanto S/ 20)`;
+
+  } else if (region === "provincia") {
+    campoUbicacion.style.display = "none";
+    campoProvincia.style.display = "block";
+
+    envioOpcion.textContent = "S/ 10.00 🚚";
+    checkoutTotal.textContent = `S/ ${(subtotalProducto + 10).toFixed(2)} (Adelanto S/ 20)`;
+  }
+}
+
+// Detectar cambio
+regionSelect.addEventListener("change", actualizarEnvio);
+
+// Ejecutar al entrar al checkout
+actualizarEnvio();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const regionSelect = document.getElementById("checkoutRegion");
+  const envioTexto = document.getElementById("envioTexto");
+  const envioResumen = document.getElementById("envioTextoResumen");
+  const checkoutSubtotal = document.getElementById("checkoutSubtotal");
+  const checkoutTotal = document.getElementById("checkoutTotal");
+  const checkoutAdelanto = document.getElementById("checkoutAdelanto");
+
+  function actualizarEnvioCheckout() {
+    const subtotalTexto = checkoutSubtotal.textContent.replace("S/","").trim();
+    const subtotal = parseFloat(subtotalTexto) || 0;
+
+    if (regionSelect.value === "lima") {
+      envioTexto.textContent = "GRATIS 🚚";
+      envioResumen.textContent = "GRATIS";
+      checkoutTotal.textContent = `S/ ${subtotal.toFixed(2)}`;
+      checkoutAdelanto.textContent = "S/ 20";
+    }
+
+    if (regionSelect.value === "provincia") {
+      envioTexto.textContent = "S/ 10.00 🚚";
+      envioResumen.textContent = "S/ 10.00";
+      checkoutTotal.textContent = `S/ ${(subtotal + 10).toFixed(2)}`;
+      checkoutAdelanto.textContent = "S/ 30";
+    }
+  }
+
+  regionSelect.addEventListener("change", actualizarEnvioCheckout);
+  actualizarEnvioCheckout();
+
+  // FINALIZAR WHATSAPP
+  document.getElementById("btnFinalizarWhatsApp").addEventListener("click", () => {
+
+    const nombre = document.getElementById("checkoutNombre").value;
+    const apellido = document.getElementById("checkoutApellido").value;
+    const telefono = document.getElementById("checkoutTelefono").value;
+    const producto = document.getElementById("checkoutNombreProducto").textContent;
+    const total = checkoutTotal.textContent;
+    const metodoPago = document.querySelector("input[name='metodoPago']:checked")?.value || "";
+
+    const mensaje = `
+🛍 *Pedido Tiendas Nala*
+👤 Cliente: ${nombre} ${apellido}
+📞 Teléfono: ${telefono}
+📦 Producto: ${producto}
+💳 Pago: ${metodoPago}
+💰 Total: ${total}
+`;
+
+    window.open(
+      "https://wa.me/51924948674?text=" + encodeURIComponent(mensaje),
+      "_blank"
+    );
+  });
+
+});
+</script>
+<script>
+function actualizarResumenCheckout() {
+
+  // ===== TALLAS =====
+  const tallaH = document.getElementById("tallaHombre")?.value || "-";
+  const tallaM = document.getElementById("tallaMujer")?.value || "-";
+
+  let textoTalla = "No aplica";
+  if (tallaH !== "-" || tallaM !== "-") {
+    textoTalla = `Hombre: ${tallaH} | Mujer: ${tallaM}`;
+  }
+
+  document.getElementById("checkoutTalla").textContent = textoTalla;
+
+  // ===== ZONA =====
+  const region = document.getElementById("checkoutRegion").value;
+  document.getElementById("checkoutZona").textContent =
+    region ? region.toUpperCase() : "-";
+
+  // ===== MÉTODO DE PAGO =====
+  const metodoPago = document.querySelector("input[name='metodoPago']:checked")?.value || "-";
+  document.getElementById("checkoutMetodoPago").textContent = metodoPago;
+}
+
+// ===== EVENTOS =====
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.getElementById("checkoutRegion")
+    ?.addEventListener("change", actualizarResumenCheckout);
+
+  document.querySelectorAll("input[name='metodoPago']")
+    .forEach(r => r.addEventListener("change", actualizarResumenCheckout));
+
+  document.getElementById("tallaHombre")
+    ?.addEventListener("change", actualizarResumenCheckout);
+
+  document.getElementById("tallaMujer")
+    ?.addEventListener("change", actualizarResumenCheckout);
+
+  actualizarResumenCheckout(); // inicial
+});
+</script>
+<script>
+function limpiarTodosLosDatos() {
+
+  /* ========= TALLAS ========= */
+  const tallaH = document.getElementById("tallaHombre");
+  const tallaM = document.getElementById("tallaMujer");
+  if (tallaH) tallaH.value = "";
+  if (tallaM) tallaM.value = "";
+
+  /* ========= CHECKOUT INPUTS ========= */
+  const camposCheckout = [
+    "checkoutNombre",
+    "checkoutApellido",
+    "checkoutCorreo",
+    "checkoutTelefono",
+    "checkoutDireccion",
+    "checkoutUbicacionMaps",
+    "checkoutCiudad",
+    "checkoutProvincia"
+  ];
+
+  camposCheckout.forEach(id => {
+    const campo = document.getElementById(id);
+    if (campo) campo.value = "";
+  });
+
+  /* ========= ZONA ========= */
+  const region = document.getElementById("checkoutRegion");
+  if (region) region.value = "";
+
+  /* ========= MÉTODO DE PAGO ========= */
+  document
+    .querySelectorAll("input[name='metodoPago']")
+    .forEach(r => r.checked = false);
+
+  // Plin por defecto
+  const plin = document.querySelector("input[name='metodoPago'][value='Plin']");
+  if (plin) plin.checked = true;
+
+  /* ========= RESUMEN CHECKOUT ========= */
+  const limpiarTexto = [
+    "checkoutTalla",
+    "checkoutZona",
+    "checkoutMetodoPago",
+    "checkoutSubtotal",
+    "checkoutTotal"
+  ];
+
+  limpiarTexto.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = "-";
+  });
+
+  /* ========= ENVÍO ========= */
+  const envioResumen = document.getElementById("envioTextoResumen");
+  if (envioResumen) envioResumen.textContent = "-";
+
+  /* ========= OCULTAR CAMPOS ========= */
+  const campoUbicacion = document.getElementById("campoUbicacion");
+  const campoProvincia = document.getElementById("campoProvincia");
+  if (campoUbicacion) campoUbicacion.style.display = "none";
+  if (campoProvincia) campoProvincia.style.display = "none";
+
+  console.log("✔ Datos limpiados correctamente");
+}
+</script>
+
+<script>
+// ===== LISTENERS PARA DESCUENTO ESTUDIANTE =====
+document.addEventListener("DOMContentLoaded", function() {
+  
+  console.log("✅ Listeners de descuento estudiante cargados");
+  
+  // Listener para cambio de región
+  const regionSelect = document.getElementById("checkoutRegion");
+  if (regionSelect) {
+    regionSelect.addEventListener("change", function() {
+      console.log("🔄 Región cambió");
+      actualizarPrecioCheckout();
+      actualizarResumenCheckout();
+    });
+  }
+  
+  // Listener para código de estudiante
+  const codigoEstudiante = document.getElementById("codigoEstudiante");
+  if (codigoEstudiante) {
+    codigoEstudiante.addEventListener("input", function() {
+      console.log("🔄 Código estudiante cambió:", this.value);
+      actualizarPrecioCheckout();
+    });
+  }
+  
+  // Listener para tipo de cliente
+  const radiosTipoCliente = document.querySelectorAll("input[name='tipoCliente']");
+  radiosTipoCliente.forEach(function(radio) {
+    radio.addEventListener("change", function() {
+      console.log("🔄 Tipo de cliente cambió:", this.value);
+      
+      const campoCodigoEstudiante = document.getElementById("campoCodigoEstudiante");
+      const precioSeleccionado = document.getElementById("precioSeleccionado");
+      
+      if (this.value === "estudiante") {
+        if (campoCodigoEstudiante) {
+          campoCodigoEstudiante.style.display = "block";
+        }
+      } else {
+        if (campoCodigoEstudiante) {
+          campoCodigoEstudiante.style.display = "none";
+        }
+        if (precioSeleccionado) {
+          precioSeleccionado.style.display = "none";
+        }
+        if (codigoEstudiante) {
+          codigoEstudiante.value = "";
+        }
+      }
+      
+      actualizarPrecioCheckout();
+    });
+  });
+  
+});
+</script>
+
+</body>
+</html>
